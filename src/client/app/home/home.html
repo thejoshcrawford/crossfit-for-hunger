@@ -1,0 +1,302 @@
+<!-- banner start -->
+<div id="banner" class="banner">
+	<div class="banner-image" backstretch backstretch-images="'../images/banner2.jpg'" style="height: 100vh;"></div>
+	<div class="banner-caption">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 object-non-visible" when-visible="animateElementIn" when-not-visible="animateElementOut" >
+					<h1 class="text-center">We are
+						<span>Moxie</span>
+					</h1>
+					<p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos debitis provident nulla illum minus enim praesentium repellendus
+						ullam cupiditate reiciendis optio voluptatem, recusandae nobis quis aperiam, sapiente libero ut at.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- banner end -->
+<!-- section start -->
+<div id="register" class="section object-non-visible translucent-bg bg-image-1 blue" when-visible="animateElementIn" when-not-visible="animateElementOut"  >
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="title text-center">Register for
+					<span>The Moxie Games</span>
+				</h1>
+				<form action="https://www.paypal.com/cgi-bin/webscr " method="post " target="_top">
+					<div class="form-group">
+						<div class="btn-group" role="group" aria-label="...">
+							<button type="button" class="btn btn-default">Individual RX $50</button>
+							<button type="button" class="btn btn-default">Masters (50+) $50</button>
+							<button type="button" class="btn btn-default">Team (3) $130</button>
+							<button type="button" class="btn btn-default">Kids Expo $10</button>
+						</div>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="name-1" placeholder="Name of Athlete 1"/>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="name-2" placeholder="Name of Athlete 2"/>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="name-3" placeholder="Name of Athlete 3"/>
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" id="email" placeholder="Email"/>
+					</div>
+					<paypal-button business="myemail@mydomain.com" language-code="it_IT" currency-code="EUR" item-name="My nice item description" amount="100"></paypal-button>
+					<!-- Card info -->
+					<!--<div class="card-info">
+										<label>Payment</label>
+										<div class="form-group">
+											<input class="form-control" type="text" name="number" size="20" placeholder="Card Number" maxlength="19" required="required">
+										</div>
+										<div class="row">
+											<div class="col-xs-4">
+												<div class="form-group">
+													<input class="form-control" type="text" name="expMonth" size="2" placeholder="MM" required="required" />
+												</div>
+											</div>
+											<div class="col-xs-4">
+												<div class="form-group">
+													<input class="form-control type=" number " name="expYear " size="4 " placeholder="YYYY " required="required "/>
+									</div>-->
+					<input type="hidden " name="cmd " value="_s-xclick "/>
+					<input type="hidden " name="hosted_button_id " value="J6UGVF9NW9F88 "/>
+					<input type="image " src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif " border="0 " name="submit
+													" alt="PayPal - The safer, easier way to pay online! "/>
+					<img alt=" " border="0 " src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif " width="1 " height="1 "/>
+				</form>
+				
+				<!-- Logged Out or Not Paid -->
+				<div class="registration" ng-hide="$kinvey.getActiveUser().payments.length > 0">
+				<div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+		
+					<h1 class="page-header">Register</h1>
+					
+					
+						<div class="btn-group" role="group" aria-label="...">
+							<button type="button" class="btn btn-default">Individual RX $50</button>
+							<button type="button" class="btn btn-default">Masters (50+) $50</button>
+							<button type="button" class="btn btn-default">Team (3) $130</button>
+							<button type="button" class="btn btn-default">Kids Expo $10</button>
+						</div>
+					
+		
+					<form class="application-form"
+						name="applicationForm"
+						method="POST"
+						id="application-form"
+						ng-submit="submitPayment()">
+					<!-- Personal Info -->
+					<label>Athlete</label>
+		
+					<div class="row">
+						<div class="col-xs-6">
+						<div class="form-group">
+							<input class="form-control"
+								ng-class="{'is-valid': applicationForm.first_name.$valid, 'is-dirty': applicationForm.first_name.$dirty && applicationForm.first_name.hasBlurred}"
+								ng-blur="applicationForm.first_name.hasBlurred = applicationForm.first_name.$dirty"
+								ng-model="user.first_name"
+								name="first_name"
+								type="text"
+								placeholder="First name"
+								required="required"/>
+						</div>
+						</div>
+		
+						<div class="col-xs-6">
+						<div class="form-group">
+							<input class="form-control"
+								ng-class="{'is-valid': applicationForm.last_name.$valid, 'is-dirty': applicationForm.last_name.$dirty && applicationForm.last_name.hasBlurred}"
+								ng-blur="applicationForm.last_name.hasBlurred = applicationForm.last_name.$dirty"
+								ng-model="user.last_name"
+								name="last_name"
+								type="text"
+								placeholder="Last name"
+								required="required"/>
+						</div>
+		
+						</div>
+					</div>
+		
+					<div class="row">
+						<div class="col-xs-12">
+						<div class="form-group">
+							<input class="form-control"
+								ng-class="{'is-valid': applicationForm.email.$valid, 'is-dirty': applicationForm.email.$dirty && applicationForm.email.hasBlurred}"
+								ng-blur="applicationForm.email.hasBlurred = applicationForm.email.$dirty"
+								ng-model="user.email"
+								name="email"
+								type="email"
+								placeholder="Email"
+								required="required"/>
+						</div>
+						</div>
+					</div>
+		
+					<!-- Card info -->
+					<div class="card-info">
+						<label>Payment</label>
+		
+						<div class="form-group">
+						<input class="form-control"
+								ng-class="{'is-valid': applicationForm.number.$valid, 'is-dirty': applicationForm.number.$dirty && applicationForm.number.hasBlurred}"
+								ng-blur="applicationForm.number.hasBlurred = applicationForm.number.$dirty"
+								type="text"
+								name="number"
+								size="20"
+								data-stripe="number"
+								placeholder="Card Number"
+								ng-model="card.number"
+								maxlength="19"
+								required="required"/>
+						</div>
+		
+						<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group">
+							<input class="form-control"
+									ng-class="{'is-valid': applicationForm.expMonth.$valid, 'is-dirty': applicationForm.expMonth.$dirty && applicationForm.expMonth.hasBlurred}"
+									ng-blur="applicationForm.expMonth.hasBlurred = applicationForm.expMonth.$dirty"
+									type="text"
+									name="expMonth"
+									size="2"
+									ng-minlength="2"
+									ng-maxlength="2"
+									data-stripe="exp-month"
+									placeholder="MM"
+									ng-model="card.expMonth"
+									required="required"/>
+							</div>
+						</div>
+		
+						<div class="col-xs-4">
+							<div class="form-group">
+							<input class="form-control"
+									ng-class="{'is-valid': applicationForm.expYear.$valid, 'is-dirty': applicationForm.expYear.$dirty && applicationForm.expYear.hasBlurred}"
+									ng-blur="applicationForm.expYear.hasBlurred = applicationForm.expYear.$dirty"
+									type="number"
+									name="expYear"
+									size="4"
+									ng-minlength="4"
+									ng-maxlength="4"
+									data-stripe="exp-year"
+									placeholder="YYYY"
+									ng-model="card.expYear"
+									required="required"/>
+							</div>
+						</div>
+		
+						<div class="col-xs-4">
+							<div class="form-group">
+							<input class="form-control"
+									ng-class="{'is-valid': applicationForm.cvc.$valid, 'is-dirty': applicationForm.cvc.$dirty && applicationForm.cvc.hasBlurred}"
+									ng-blur="applicationForm.cvc.hasBlurred = applicationForm.cvc.$dirty"
+									type="text"
+									size="4"
+									name="cvc"
+									data-stripe="cvc"
+									placeholder="CVC"
+									ng-minlength="3"
+									ng-maxlength="4"
+									ng-model="card.cvc"
+									required="required"/>
+							</div>
+						</div>
+						</div>
+					</div>
+		
+					<br/>
+		
+					<div class="alert alert-danger" ng-show="applicationErrors.length > 0">
+						<div ng-repeat="err in applicationErrors">{{ err }}</div>
+					</div>
+		
+					<div class="text-center">
+						<button type="submit"
+								class="tsc-btn tsc-btn-white tsc-btn-lg tsc-btn-block"
+								ng-disabled="applicationForm.$invalid || isProcessingPayment">
+						<span ng-hide="isProcessingPayment">Register @ {{ pricing.priceInCents.current / 100 | currency}}</span>
+						<span ng-show="isProcessingPayment"><i class="fa fa-pulse fa-spinner"></i></span>
+						</button>
+					</div>
+					</form>
+				</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer start -->
+<footer id="contact">
+	<!-- .footer start -->
+	<div class="footer section">
+		<div class="container ">
+			<h1 class="title text-center " id="contact ">Contact Us</h1>
+			<div class="space "></div>
+			<div class="row ">
+				<div class="col-sm-6 ">
+					<div class="footer-content ">
+						<ul class="list-icons ">
+							<li>
+								<i class="fa fa-map-marker pr-10 "></i>12403 E 1st Ave,<br>Spokane Valley, WA 99216
+							<li>
+								<i class="fa fa-phone pr-10 "></i>(509) 863-7922</li>
+							<li>
+								<i class="fa fa-envelope-o pr-10 "></i><a href="mailto:salem.giampietro@yahoo.com">salem.giampietro@yahoo.com</a></li>
+						</ul>
+						<ul class="social-links ">
+							<li class="facebook ">
+								<a target="_blank " href="https://www.facebook.com/pages/HtmlCoder/714570988650168
+													"><i class="fa fa-facebook "></i></a>
+							</li>
+							<li class="twitter ">
+								<a target="_blank " href="https://twitter.com/HtmlcoderMe "><i class="fa fa-twitter "></i></a>
+							</li>							
+							<li class="youtube ">
+								<a target="_blank " href="http://www.youtube.com "><i class="fa fa-youtube "></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6 ">
+					<div class="footer-content ">
+						<form role="form " id="footer-form ">
+							<div class="form-group has-feedback ">
+								<label class="sr-only " for="name2 ">Name</label>
+								<input type="text " class="form-control " id="name2 " placeholder="Name " name="name2 " required>
+								<i class="fa fa-user form-control-feedback "></i>
+							</div>
+							<div class="form-group has-feedback ">
+								<label class="sr-only " for="email2 ">Email address</label>
+								<input type="email " class="form-control " id="email2 " placeholder="Enter email " name="email2 " required>
+								<i class="fa fa-envelope form-control-feedback "></i>
+							</div>
+							<div class="form-group has-feedback ">
+								<label class="sr-only " for="message2 ">Message</label>
+								<textarea class="form-control " rows="8 " id="message2 " placeholder="Message " name="message2 " required></textarea>
+								<i class="fa fa-pencil form-control-feedback "></i>
+							</div>
+							<input type="submit " value="Send " class="btn btn-default " style="margin-bottom: 39px;">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="subfooter ">
+		<div class="container ">
+			<div class="row ">
+				<div class="col-md-12 ">
+					<p class="text-center ">Copyright © 2015 by 
+						<a target="_blank " href="http://crawford.cc">Josh Crawford</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- .footer end -->
+</footer>
