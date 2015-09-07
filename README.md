@@ -266,3 +266,20 @@ The `blocks.router` module contains a routing helper module that assists in addi
 ## License
 
 MIT
+
+Competition - THG
+    Elite
+        Event 1
+            Dan
+            Bill
+            Josh
+        Event 2
+            Dan
+            Bill
+            Josh
+    RX
+        Event 3
+        Event 4
+    Masters
+        Event 5
+        Event 6

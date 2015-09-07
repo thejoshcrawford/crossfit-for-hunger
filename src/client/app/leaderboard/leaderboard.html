@@ -1,0 +1,7 @@
+<h1 style="margin-top: 180px;">Divisions</h1>
+<div ng-repeat="(divisionName,division) in data.divisions">
+	{{divisionName}}
+  	<div ng-repeat="(athleteName,events) in division">
+  		{{athleteName}}{{events}}
+	</div>
+</div>
