@@ -1,7 +1,26 @@
-<h1 style="margin-top: 180px;">Divisions</h1>
-<div ng-repeat="(divisionName,division) in data.divisions">
-	{{divisionName}}
-  	<div ng-repeat="(athleteName,events) in division">
-  		{{athleteName}}{{events}}
-	</div>
+<div class="leaderboard container-fluid">
+	<header class="row events-header">
+		<div class="division-events" ng-repeat="division in vm.divisions">
+			<div class="col-xs-4 event-title" ng-repeat="event in division.athletes[0].events">
+				<h3>{{event.name | uppercase}}</h3>
+			</div>
+			<div class="col-xs-4 event-title">
+				<h3>TOTAL</h3>
+			</div>
+		</div>
+	</header>
+	<main class="leaderboard-body" ng-repeat="division in vm.divisions">
+		<div class="row leaderboard-header">
+			<div class="col-xs-4 leaderboard-header-title"></div>
+		</div>
+		<div class="row" ng-repeat="athlete in division.athletes">
+			<div class="col-xs-4 athlete-name">{{athlete.name}}</div>
+			<div class="col-xs-4 athlete-event" ng-repeat="event in athlete.events">{{event.score}}</div>
+		</div>
+	</main>
+	<footer class="row divisions-footer">
+		<div class="col-xs-4 division-title" ng-repeat="division in vm.divisions">
+			<h1>{{division.name}}</h1>
+		</div>
+	</footer>
 </div>
