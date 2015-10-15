@@ -9,35 +9,23 @@
     /* @ngInject */
     function LeaderboardController($q, $scope, $firebaseArray, logger) {
         var vm = this;
-        vm.news = {
-            title: 'The Moxie Games',
-            description: "The Moxie Games is a Women's only CrossFit competition."
-        };
         vm.messageCount = 0;
         vm.title = 'Leaderboard';
-
-        activate();
+        vm.selectedDivision = null;
+        vm.selectedEvent = 'total';
         
-        $scope.animateElementIn = function($el) {
-            $el.removeClass('object-non-visible');
-            $el.addClass('animated object-visible fadeIn'); // this example leverages animate.css classes 
-        };
+        var ref = new Firebase("https://boiling-fire-216.firebaseio.com/divisions");
+        vm.divisions = $firebaseArray(ref);
+        vm.divisions.$loaded(function (divisions) {
+            vm.selectedDivision = divisions[0].name;
+        });
         
-        $scope.animateElementOut = function($el) {};
-
-        function activate() {
-            var ref = new Firebase("https://boiling-fire-216.firebaseio.com/divisions");
-            // download the data into a local object
-            //var syncObject = $firebaseArray(ref);
-            vm.divisions = $firebaseArray(ref);
-            // synchronize the object with a three-way data binding
-            // click on `index.html` above to see it used in the DOM!
-            //syncObject.$bindTo(vm, "divisions");
-            
-
-            //return $q.all(promises).then(function () {
-                logger.info('Activated Leaderboard View');
-            //});
+        vm.showDivision = function(divisionName){
+            vm.selectedDivision = divisionName;
+        }
+        
+        vm.showEvent = function(eventName){
+            vm.selectedEvent = eventName;
         }
     }
 })();

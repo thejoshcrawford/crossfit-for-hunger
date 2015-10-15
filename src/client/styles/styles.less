@@ -119,6 +119,7 @@ blockquote {
 	display: flex;
   	min-height: 100vh;
   	flex-direction: column;
+	background: #F5F5F5;
 	.events-header {	
 		padding: 0 3% 0;	
 		background: #E3E3E3;
@@ -129,8 +130,12 @@ blockquote {
 				padding: 10px;
 				margin: 0;
 				text-align: center;
-				background: #BCBCBC;				
-			}
+				color: white;
+				background: #BCBCBC;								
+			}	
+			.active {
+				background: #3FA9F5;
+			}		
 			&:first-of-type h3 {
 				border-radius: 10px 0 0 10px;
 			}
@@ -140,18 +145,34 @@ blockquote {
 		}		
 	}
 	.leaderboard-body {
-		flex: 1;
+		flex: 1;		
+		color: #888888;
+		font-size: 20px;
+		.leaderboard-header {
+			background: #525252;
+			color: white;
+			font-weight: 600;
+			padding: 10px 0;
+		}
+		.row {
+			padding: 10px 0;
+			border-bottom: 2px solid white;
+		}
 	}
-	.divisions-footer {
+	.divisions-footer {		
 		background: #BCBCBC;
 		border: 1px solid white;
 		h1 {
+			color: white;
 			padding: 10px;
 			margin: 0;
 			text-align: center;
 		}
 		.division-title {
 			border-right: 1px solid white;
+		}
+		.active {
+			background: #3FA9F5
 		}
 	}
 }
