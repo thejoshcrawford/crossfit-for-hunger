@@ -1,0 +1,35 @@
+<div class="leaderboard container-fluid">
+	<main class="leaderboard-body" ng-repeat="division in vm.divisions" ng-show="vm.selectedDivision === division.name">
+		<div class="row leaderboard-header">
+			<div class="col-xs-2 leaderboard-header-title">Athlete</div>
+			<div class="col-xs-2 athlete-event" 
+				ng-repeat="event in division.athletes[0].events"
+				>
+				{{event.name}}
+			</div>
+			<div class="col-xs-2 leaderboard-header-title">Overall</div>
+		</div>
+		<div class="row" ng-repeat="athlete in division.athletes">
+			<div class="col-xs-2 athlete-name">{{athlete.name}}</div>
+			<div class="col-xs-2 athlete-event" 
+				ng-repeat="event in athlete.events"
+				ng-init="athlete.total = athlete.total + event.score"
+				>
+				<input type="text" ng-model="event.score" ng-blur="vm.saveScore(division)">
+			</div>
+			<div class="col-xs-2 athlete-event"
+				ng-show="vm.selectedEvent == 'total'">
+				{{athlete.total}}
+				</div>
+		</div>
+	</main>
+	<footer class="row divisions-footer">
+		<div class="col-xs-4 division-title" 
+			ng-repeat="division in vm.divisions" 
+			ng-click="vm.showDivision(division.name)"
+			ng-class="{active: vm.selectedDivision === division.name}"
+			>
+			<h1>{{division.name}}</h1>
+		</div>
+	</footer>
+</div>

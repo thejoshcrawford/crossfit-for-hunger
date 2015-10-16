@@ -2,17 +2,17 @@
     'use strict';
 
     angular
-        .module('app.leaderboard')
-        .controller('LeaderboardController', LeaderboardController);
+        .module('app.admin')
+        .controller('AdminController', AdminController);
 
-    LeaderboardController.$inject = ['$q', '$scope', '$firebaseArray', 'logger'];
+    AdminController.$inject = ['$q', '$scope', '$firebaseArray', 'logger'];
     /* @ngInject */
-    function LeaderboardController($q, $scope, $firebaseArray, logger) {
+    function AdminController($q, $scope, $firebaseArray, logger) {
         var vm = this;
         vm.messageCount = 0;
-        vm.title = 'Leaderboard';
+        vm.title = 'Admin';
         vm.selectedDivision = null;
-        vm.selectedEvent = 'overallRank';
+        vm.selectedEvent = 'total';
         
         var ref = new Firebase("https://boiling-fire-216.firebaseio.com/divisions");
         vm.divisions = $firebaseArray(ref);
@@ -24,8 +24,10 @@
             vm.selectedDivision = divisionName;
         }
         
-        vm.showEvent = function(eventName){
-            vm.selectedEvent = eventName;
+        vm.saveScore = function(division){
+            vm.divisions.$save(division).then(function(){
+                
+            });
         }
     }
 })();
