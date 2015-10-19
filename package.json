@@ -5,7 +5,7 @@
   "scripts": {
     "init": "npm install",
     "postinstall": "bower install",
-    "start": "node src/server/app.js",
+    "start": "gulp serve-build", //"node src/server/app.js",
     "test": "gulp test"
   },
   "dependencies": {
