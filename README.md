@@ -1,4 +1,4 @@
-# The Moxie Games
+# CrossFit Hunger Games
 
 **Generated from HotTowel Angular**
 

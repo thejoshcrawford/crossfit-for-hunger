@@ -1,6 +1,6 @@
 {
-  "name": "the-moxie-games",
-  "description": "The Moxie Games Project",
+  "name": "crossfit-hunger-games",
+  "description": "Hunger Games",
   "version": "0.0.0",
   "scripts": {
     "init": "npm install",

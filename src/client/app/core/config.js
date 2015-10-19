@@ -14,7 +14,7 @@
 
     var config = {
         appErrorPrefix: '[Error] ',
-        appTitle: 'The Moxie Games'
+        appTitle: 'Hunger Games'
     };
 
     core.value('config', config);
