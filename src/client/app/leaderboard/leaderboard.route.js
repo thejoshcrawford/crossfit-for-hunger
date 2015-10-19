@@ -16,13 +16,13 @@
             {
                 state: 'leaderboard',
                 config: {
-                    url: '/leaderboard',
+                    url: '/',
                     templateUrl: 'app/leaderboard/leaderboard.html',
                     controller: 'LeaderboardController',
                     controllerAs: 'vm',
                     title: 'leaderboard',
                     settings: {
-                        nav: 2,
+                        nav: 1,
                         content: '<i class="fa fa-home"></i> Leaderboard'
                     }
                 }
