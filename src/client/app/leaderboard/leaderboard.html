@@ -24,11 +24,11 @@
 					>
 					<h3 ng-class="{active: vm.selectedEvent === event.name}">{{event.name | uppercase}}</h3>
 				</div>
-				<div class="col-xs-6 event-title"
+				<!--<div class="col-xs-6 event-title"
 					ng-click="vm.showEvent('overallRank')"	
 					>
 					<h3 ng-class="{active: vm.selectedEvent === 'overallRank'}">OVERALL</h3>
-				</div>				
+				</div>				-->
 			</div>				
 		</div>
 	</header>
@@ -40,13 +40,16 @@
 		</div>
 		<div ng-repeat="event in division.events"
 			ng-show="vm.selectedEvent == event.name">
-			<div class="row" ng-repeat="score in event.scores | orderBy:'value'">
+			<div class="row" 
+				ng-repeat="score in event.scores | orderBy:'value'"
+				ng-animate="'animate'"
+				>
 				<div class="col-xs-4 athlete-name">{{score.athleteName}}</div>
 				<div class="col-xs-4 athlete-event">{{score.value | secondsToDateTime | date:'mm:ss'}}</div>
 				<div class="col-xs-4 athlete-event">{{$index+1}}</div>
 			</div>
 		</div>
-		<div ng-show="vm.selectedEvent == 'overallRank'">
+		<!--<div ng-show="vm.selectedEvent == 'overallRank'">
 			<div class="row" ng-repeat="score in event.scores">
 				<div class="col-xs-4 athlete-name">{{score.athleteName}}</div>
 				<div class="col-xs-4 athlete-event">{{score.value | secondsToDateTime | date:'mm:ss'}}</div>
@@ -55,7 +58,7 @@
 					{{athlete.overallRank}}
 					</div>
 			</div>
-		</div>
+		</div>-->
 	</main>
 	<footer class="row divisions-footer">
 		<div class="col-xs-4 division-title" 
