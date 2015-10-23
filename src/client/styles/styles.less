@@ -116,12 +116,15 @@ blockquote {
 /* Layout
 ----------------------------------------------------------------------------- */
 .leaderboard {
-	display: flex;
-  	min-height: 100vh;
-  	flex-direction: column;
+	// display: flex;
+  	// min-height: 100vh;
+  	// flex-direction: column;
 	background: #E3E3E3;
 	.events-header {	
 		padding: 0 10px 10px;
+		// order: 1;
+    	// flex-shrink: 0;
+		// flex-basis: 50px;
 		.event-title {
 			padding: 10px 0 0;
 			padding-right: 1px;
@@ -144,7 +147,8 @@ blockquote {
 		}		
 	}
 	.leaderboard-body {
-		flex: 1;		
+		// order: 2;
+		// overflow-y: scroll;		
 		color: #888888;
 		font-size: 20px;
 		.leaderboard-header {
@@ -159,6 +163,9 @@ blockquote {
 		}
 	}
 	.divisions-footer {		
+		// order: 3;
+    	// flex-shrink: 0;
+		// flex-basis: 50px;
 		background: #BCBCBC;
 		border-top: 1px solid white;
 		border-right: 1px solid white;
