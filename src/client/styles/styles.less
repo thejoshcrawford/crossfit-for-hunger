@@ -23,7 +23,7 @@ body {
 	font-size: 15px;
 	line-height: 1.50;
 	color: #333333;
-	background-color: #ffffff;
+	background: #E3E3E3;
 	position: relative;
 }
 h1,
@@ -119,9 +119,8 @@ blockquote {
 	// display: flex;
   	// min-height: 100vh;
   	// flex-direction: column;
-	background: #E3E3E3;
-	.events-header {	
-		padding: 0 10px 10px;
+	
+	.events-header {			
 		// order: 1;
     	// flex-shrink: 0;
 		// flex-basis: 50px;
@@ -144,28 +143,40 @@ blockquote {
 			&:last-of-type h3{
 				border-radius: 0 10px 10px 0;
 			}
-		}		
+		}	
+		.row {
+			padding: 0 10px 0;
+		}
+		.leaderboard-header {
+			background: #525252;
+			color: white;
+			font-weight: 600;
+			margin-top: 10px;
+			padding: 10px 0;
+		}	
 	}
 	.leaderboard-body {
 		// order: 2;
 		// overflow-y: scroll;		
 		color: #888888;
 		font-size: 20px;
-		.leaderboard-header {
-			background: #525252;
-			color: white;
-			font-weight: 600;
-			padding: 10px 0;
-		}
+		margin-top: 162px;
 		.row {
 			padding: 10px 0;
 			border-bottom: 2px solid white;
 		}
+		.athlete-name  {
+			//white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 	}
 	.divisions-footer {		
-		// order: 3;
-    	// flex-shrink: 0;
-		// flex-basis: 50px;
+		position: fixed;
+		left: 0px;
+		bottom: 0px;
+		height: 81px;
+		width: 100%;
 		background: #BCBCBC;
 		border-top: 1px solid white;
 		border-right: 1px solid white;
