@@ -40,11 +40,12 @@
 			<div ng-repeat="event in division.events"
 				ng-show="vm.selectedEvent == event.name">
 				<div class="row" 
-					ng-repeat="score in event.scores | orderBy:'value'"
+					ng-repeat="score in event.scores"
 					ng-animate="'animate'"
 					>
 					<div class="col-xs-6 athlete-name">{{score.athleteName}}</div>
-					<div class="col-xs-3 athlete-event">{{score.value | secondsToDateTime | date:'mm:ss'}}</div>
+					<div ng-if="event.measure != 'time'" class="col-xs-3 athlete-event">{{score.value}}</div>
+					<div ng-if="event.measure == 'time'" class="col-xs-3 athlete-event">{{score.value | secondsToDateTime | date:'mm:ss'}}</div>
 					<div class="col-xs-3 athlete-event">{{$index+1}}</div>
 				</div>
 			</div>
