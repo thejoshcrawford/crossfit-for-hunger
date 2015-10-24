@@ -38,29 +38,52 @@
                 });
                 
                 division.events.forEach(function(event){
+                   // var sorted = event.scores.slice().sort(function(a,b){return b.value-a.value})
+                   // var ranks = event.scores.slice().map(function(v){ return sorted.indexOf(v)+1 });
+                    
                     event.scores.sort(function(a, b){
-                        var equality = 0;
-                        if (a.value < b.value) equality = -1;
-                        if (a.value > b.value) equality = 1;
+                        var equality = a.value - b.value;
                         
-                        if (event.sort === 'ascending') equality *= -1;
+                        if (a.value === 0 && b.value !== 0) return 1; 
+                        if (b.value === 0 && a.value !== 0) return -1;                       
+                        
+                        if (event.sort === 'descending') equality *= -1;
                         
                         return equality;
                     });
                     
+                    event.scores.forEach(function(score){                 
+                        score.rank = event.scores
+                            .map(function(s) {return s.value; })
+                            .indexOf(score.value)+1;
+                    });
+                    
                     event.scores.forEach(function(score, index, array){                 
                         var overallIndex = overallEvent.scores
-                            .map(function(score) {return score.athleteName; })
+                            .map(function(oeScore) {return oeScore.athleteName; })
                             .indexOf(score.athleteName);
                             
                         if (overallIndex === -1) {
-                            overallEvent.scores.push({athleteName: score.athleteName, value: index+1});
+                            overallEvent.scores.push({athleteName: score.athleteName, value: score.rank});
                         } else {
-                            overallEvent.scores[overallIndex].value += index+1;
+                            overallEvent.scores[overallIndex].value += score.rank;
                         }
                     });
-                });            
-                division.events.push(overallEvent);
+                });   
+                overallEvent.scores.sort(function(a, b){
+                    var equality = a.value - b.value;
+                        
+                    if (a.value === 0 && b.value !== 0) return 1; 
+                    if (b.value === 0 && a.value !== 0) return -1;
+                    
+                    return equality;
+                });  
+                overallEvent.scores.forEach(function(score){                 
+                        score.rank = overallEvent.scores
+                            .map(function(s) {return s.value; })
+                            .indexOf(score.value)+1;
+                    });    
+                division.events.push(overallEvent);                
             });
         }
     }

@@ -46,7 +46,7 @@
 					<div class="col-xs-6 athlete-name">{{score.athleteName}}</div>
 					<div ng-if="event.measure != 'time'" class="col-xs-3 athlete-event">{{score.value}}</div>
 					<div ng-if="event.measure == 'time'" class="col-xs-3 athlete-event">{{score.value | secondsToDateTime | date:'mm:ss'}}</div>
-					<div class="col-xs-3 athlete-event">{{$index+1}}</div>
+					<div class="col-xs-3 athlete-event">{{score.rank}}</div>
 				</div>
 			</div>
 		</div>
