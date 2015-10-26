@@ -25,18 +25,13 @@
     "angular-ui-router": "~0.2.15",
     "toastr": "~2.1.1",
     "angular-animate": "1.4.7",
+    "firebase": "2.2.9",
     "angularfire": "~1.1.2"
   },
   "overrides": {
     "bootstrap": {
       "main": "dist/css/bootstrap.css",
       "dist": "dist/js/bootstrap.js"
-    },
-    "modernizer": {
-      "main": "modernizr.js"
-    },
-    "isotope": {
-      "main": "dist/isotope.pkgd.min.js"
     }
   }
 }
