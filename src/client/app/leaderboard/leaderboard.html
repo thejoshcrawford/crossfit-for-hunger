@@ -31,8 +31,8 @@
 			</div>
 			<div class="row leaderboard-header">
 				<div class="col-xs-6 leaderboard-header-title">Athlete</div>
-				<div class="col-xs-3 leaderboard-header-title">Score</div>
-				<div class="col-xs-3 leaderboard-header-title">Rank</div>
+				<div class="col-xs-3 leaderboard-header-title text-center">Score</div>
+				<div class="col-xs-3 leaderboard-header-title text-center">Rank</div>
 			</div>
 		</div>
 	</header>
@@ -42,12 +42,11 @@
 				ng-show="vm.selectedEvent == event.name">
 				<div class="row" 
 					ng-repeat="score in event.scores"
-					ng-animate="'animate'"
 					>
 					<div class="col-xs-6 athlete-name">{{score.athleteName}}</div>
-					<div ng-if="event.measure != 'time'" class="col-xs-3 athlete-event">{{score.value}}</div>
-					<div ng-if="event.measure == 'time'" class="col-xs-3 athlete-event">{{score.value | secondsToDateTime | date:'mm:ss'}}</div>
-					<div class="col-xs-3 athlete-event">{{score.rank}}</div>
+					<div ng-if="event.measure != 'time'" class="col-xs-3 athlete-event text-center">{{score.value}}</div>
+					<div ng-if="event.measure == 'time'" class="col-xs-3 athlete-event text-center">{{score.value | secondsToDateTime | date:'mm:ss'}}</div>
+					<div class="col-xs-3 athlete-event text-center">{{score.rank}}</div>
 				</div>
 			</div>
 		</div>
@@ -59,7 +58,7 @@
 				ng-click="vm.showDivision(division.name)"
 				ng-class="{active: vm.selectedDivision === division.name}"
 				>
-				<h1>{{division.name}}</h1>
+				<h1 blink='division.$id === vm.updatedDivision' blink-watch='vm.updateCount'>{{division.name}}</h1>
 			</div>
 		</div>
 	</footer>

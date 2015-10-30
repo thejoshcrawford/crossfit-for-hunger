@@ -137,8 +137,11 @@ a:active {
 			&:last-of-type h3{
 				border-radius: 0 10px 10px 0;
 			}
+		}
+		.row:not(.leaderboard-header) {
+			min-height: 54px;
 		}	
-		.row {
+		.row {			
 			padding: 0 10px 0;
 		}
 		.leaderboard-header {
@@ -150,8 +153,6 @@ a:active {
 		}	
 	}
 	.leaderboard-body {
-		// order: 2;
-		// overflow-y: scroll;		
 		color: #888888;
 		font-size: 20px;
 		margin-top: 184px;
@@ -160,7 +161,6 @@ a:active {
 			border-bottom: 2px solid white;
 		}
 		.athlete-name  {
-			//white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
@@ -202,28 +202,29 @@ a:active {
 
 /* Animations ----------------------*/
 
-.animate-enter, 
-.animate-leave
-{ 
-    -webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    position: relative;
-    display: block;
+.blink { 
+    -webkit-animation: blink-enter 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+    animation: blink-enter 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
 } 
- 
-.animate-enter.animate-enter-active, 
-.animate-leave {
-    opacity: 1;
-    right: 0;
-    height: 30px;
+@-webkit-keyframes blink-enter {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;   
+	}
+    to {
+        opacity: 1;
+    }
 }
- 
-.animate-leave.animate-leave-active,
-.animate-enter {
-    opacity: 0;
-    right: -50px;
-    height: 0px;
+@keyframes blink-enter {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;   
+	}
+    to {
+        opacity: 1;
+    }
 }

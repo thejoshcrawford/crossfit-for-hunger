@@ -17,6 +17,8 @@
     ```
 
     >Refer to these [instructions on how to not require sudo](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md)
+    
+4. Deploy git push origin `git subtree split --prefix build master`:gh-pages --force
 
 ## Running 
 

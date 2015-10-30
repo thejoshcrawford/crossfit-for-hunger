@@ -13,6 +13,8 @@
         vm.title = 'Leaderboard';
         vm.selectedDivision = null;
         vm.selectedEvent = 'overall';
+        vm.updateCount = 0
+        vm.updatedDivision = -1;
         
         var ref = new Firebase("https://boiling-fire-216.firebaseio.com/divisions");
         vm.divisions = $firebaseArray(ref);
@@ -29,18 +31,18 @@
             vm.selectedEvent = eventName;
         }
         
-        function buildOverall(){
-            vm.divisions.forEach(function(division){
+        function buildOverall(object){
+            // if (vm.updateCounts === null) {
+            //     vm.updateCounts = new Array(vm.divisions.length);
+            // }
+            vm.divisions.forEach(function(division, divisionIndex){
                 var overallEvent = {scores: [], name: 'overall', measure: 'overall', sort: 'ascending'};
                 division.events = division.events.filter(function(event){
                     if (event.name === 'overall') return false;
                     return true;
                 });
                 
-                division.events.forEach(function(event){
-                   // var sorted = event.scores.slice().sort(function(a,b){return b.value-a.value})
-                   // var ranks = event.scores.slice().map(function(v){ return sorted.indexOf(v)+1 });
-                    
+                division.events.forEach(function(event){                    
                     event.scores.sort(function(a, b){
                         var equality = a.value - b.value;
                         
@@ -83,8 +85,17 @@
                             .map(function(s) {return s.value; })
                             .indexOf(score.value)+1;
                     });    
-                division.events.push(overallEvent);                
+                division.events.push(overallEvent);  
+                // if (vm.updateCounts[divisionIndex] === undefined) {
+                //     vm.updateCounts[divisionIndex] = -1; // first one doesn't count
+                // } 
+                // vm.updateCounts[divisionIndex] += 1;              
             });
+            
+            vm.updateCount++;
+            if(vm.updateCount > vm.divisions.length){
+                vm.updatedDivision = object.key;
+            }            
         }
     }
 })();
