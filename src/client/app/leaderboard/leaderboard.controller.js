@@ -44,6 +44,7 @@
                 
                 division.events.forEach(function(event){                    
                     event.scores.sort(function(a, b){
+                        
                         var equality = a.value - b.value;
                         
                         if (a.value === 0 && b.value !== 0) return 1; 
